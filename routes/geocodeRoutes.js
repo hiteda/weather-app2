@@ -4,11 +4,11 @@ const keys = require('../config/keys');
 
 module.exports = app => {
     app.get('/api/geocode', async ({ query }, res) => {
-        console.log(query);
         if (!query.city || !query.state) {
             res.send("Missing parameter");
             return;
         }
+        console.log(process.env.NODE_ENV);
 
         const geocodeUrl = //'https://cors-anywhere.herokuapp.com/'
                             'https://api.opencagedata.com/geocode/v1/json?q='
