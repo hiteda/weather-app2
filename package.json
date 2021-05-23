@@ -1,0 +1,16 @@
+{
+  "name": "weather-app2",
+  "version": "1.0.0",
+  "description": "Weather application using express and react",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "David K Hite",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}
