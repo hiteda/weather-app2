@@ -5,10 +5,10 @@ const keys = require('../config/keys');
 module.exports = app => {
     app.get('/api/geocode', async ({ query }, res) => {
         if (!query.city || !query.state) {
+            res.status(400);
             res.send("Missing parameter");
             return;
         }
-        console.log(process.env.NODE_ENV);
 
         const geocodeUrl = //'https://cors-anywhere.herokuapp.com/'
                             'https://api.opencagedata.com/geocode/v1/json?q='
@@ -17,7 +17,7 @@ module.exports = app => {
                             + query.state
                             + '&key=' + keys.openCageApiKey
                             + '&language=en&pretty=1&no_annotations=1';
-        console.log(geocodeUrl);
+
         const response = await fetch(geocodeUrl, {
             method: 'GET',
             headers: {
@@ -25,9 +25,14 @@ module.exports = app => {
             }
         }).catch(console.log);
 
+        if (!response.ok) {
+            res.status(500);
+            res.send('Server request failed');
+            return;
+        }
+        
         const data = await response.json().catch(console.log);
         const coords = getCoordinatesFromData(data);
-        console.log(coords);
         res.send(coords);
     });
 };
