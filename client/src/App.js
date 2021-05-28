@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import 'materialize-css/dist/css/materialize.min.css';
+import React from 'react';
+import Layout from './components/Layout';
 
-function App() {
-  const [latLon, setLatLon] = useState({});
+const App = () => {
+  /*const [latLon, setLatLon] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,30 +13,16 @@ function App() {
       setLatLon(result);
     };
     fetchData();
-  }, []);
+  }, []);*/
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        {renderLatLon(latLon)}
-      </header>
+    <div>
+      <Layout />
     </div>
   );
 }
 
-const renderLatLon = latLon => {
+/*const renderLatLon = latLon => {
   if (latLon && latLon.status === 200) {
     return (
       <div>
@@ -45,6 +31,6 @@ const renderLatLon = latLon => {
     );
   }
   return null;
-};
+};*/
 
 export default App;
