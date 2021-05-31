@@ -11,9 +11,14 @@
 
 .App-modal-modal {
     background-color: #fefefe;
-    margin: 15% 25vw;
+    margin: 15% 12.5vw;
     border: 1px solid rgb(54, 49, 49);
     overflow: auto;
+}
+
+@media only screen and (min-width: 768px) {
+    /* For desktop */
+    .App-modal-modal {margin: 15% 25vw;}
 }
 
 .App-modal-content {
