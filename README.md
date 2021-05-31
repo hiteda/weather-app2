@@ -1,6 +1,6 @@
 # Weather Comparison App
 
-### See the app deployed on [Heroku](https://comp-weather.herokuapp.com/)
+### See the app deployed on [Heroku](https://comp-weather.herokuapp.com/) (in progress...)
 
 The Weather Comparison App lets you compare the 7-day forecast of multiple cities using the [OpenWeatherMap API](https://openweathermap.org/api) and [OpenCageData](https://opencagedata.com/)'s geocoding API. The Express backend is to allow my front end to be ignorant of the APIs being used for geocoding and weather, so I can switch them out more easily if I would like. It also keeps the API keys on the server side, and allows me to use environment variables in my Heroku deployment and keep them secret.
 
