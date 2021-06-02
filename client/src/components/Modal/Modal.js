@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css'
 
-const Modal = ({ show, onClose, onOk, children }) => {
+const Modal = ({ show, onClose, children }) => {
     if (!show) {
         return null;
     }
@@ -11,9 +11,6 @@ const Modal = ({ show, onClose, onOk, children }) => {
             <div className="App-modal-modal">
                 <span className="App-modal-close" onClick={e => { onClose(); }}>&times;</span>
                 <div className="App-modal-content">{children}</div>
-                <div>
-                    <button className="btn App-modal-ok right" onClick={() => { onOk(); }}>OK</button>
-                </div>
             </div>
         </div>
     );

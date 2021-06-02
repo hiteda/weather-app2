@@ -4,10 +4,12 @@ import ForecastList from './Forecast/ForecastList';
 import Landing from './Landing/Landing';
 import Modal from './Modal/Modal';
 import AddCity from './AddCity/AddCity';
+import validateCityState from '../utils/validateCityState';
 
 class Layout extends Component {
     state = {
-        showModal: false
+        showModal: false,
+        forecasts: []
     }
 
     constructor(props) {
@@ -23,11 +25,21 @@ class Layout extends Component {
         });
     }
 
-    handleOk() {
-        console.log("OK clicked");
-        this.setState({
-            showModal: false
-        });
+    handleOk(val) {
+        if (!validateCityState(val)) {
+            alert("Oh nuh uh! Please use the format <city, state>.");
+        }
+        else {
+            const concatenated = this.state.forecasts.concat(val);
+            this.setState({
+                showModal: false,
+                forecasts: concatenated
+            });
+        }
+    }
+
+    validateVal(val) {
+
     }
 
     render() {
@@ -40,9 +52,8 @@ class Layout extends Component {
                     <Modal
                         show={this.state.showModal}
                         onClose={() => { this.setState({ showModal: false }); }}
-                        onOk={this.handleOk}
                     >
-                        <AddCity />
+                        <AddCity onOk={this.handleOk} />
                     </Modal>
                     <div className="fixed-action-btn">
                         <button onClick={this.handleAddClicked} className='btn-floating pulse waves-effect waves-light large cyan darken-3'>
