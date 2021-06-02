@@ -6,7 +6,7 @@ const ForecastList = ({forecasts}) => {
         <div className="row">
             {forecasts.map(forecast => {
                 return (
-                    <div className="col s4" key={forecast}>{forecast}</div>
+                    <div className="col s4" key={forecast.name}>{forecast.name}</div>
                 );
             })}
         </div>

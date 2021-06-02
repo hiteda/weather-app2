@@ -4,7 +4,8 @@ import ForecastList from './Forecast/ForecastList';
 import Landing from './Landing/Landing';
 import Modal from './Modal/Modal';
 import AddCity from './AddCity/AddCity';
-import validateCityState from '../utils/validateCityState';
+import getCity from '../utils/getCity';
+import locationString from '../utils/locationString';
 
 class Layout extends Component {
     state = {
@@ -25,21 +26,21 @@ class Layout extends Component {
         });
     }
 
-    handleOk(val) {
-        if (!validateCityState(val)) {
+    async handleOk(val) {
+        const coords = await getCity(val);
+        if (!coords) {
             alert("Oh nuh uh! Please use the format <city, state>.");
         }
         else {
-            const concatenated = this.state.forecasts.concat(val);
+            const concatenated = this.state.forecasts.concat({
+                name: locationString(val),
+                coords
+            });
             this.setState({
                 showModal: false,
                 forecasts: concatenated
             });
         }
-    }
-
-    validateVal(val) {
-
     }
 
     render() {

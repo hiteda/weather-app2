@@ -7,7 +7,7 @@ const AddCity = ({ onOk }) => {
     return (
         <div>
             <h5>Add a new city</h5>
-            <span>Enter a US city in the format &lt;city, state&gt;</span>
+            <span>Enter a city name in the format &lt;city, state/country&gt;</span>
             <input onChange={event => setVal(event.target.value)} />
             <div>
                 <button className="btn App-addCity-ok right" onClick={() => { onOk(val); }}>OK</button>
