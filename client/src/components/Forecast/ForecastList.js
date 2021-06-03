@@ -1,12 +1,13 @@
 import React from 'react';
+import Forecast from './Forecast';
 
 const ForecastList = ({forecasts}) => {
 
     return (
-        <div className="row">
+        <div>
             {forecasts.map(forecast => {
                 return (
-                    <div className="col s4" key={forecast.name}>{forecast.name}</div>
+                    <Forecast key={forecast.name} name={forecast.name} coords={forecast.coords} />
                 );
             })}
         </div>

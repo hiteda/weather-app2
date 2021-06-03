@@ -1,0 +1,9 @@
+.weekday {
+    font-weight: bold;
+}
+
+.day {
+    flex: 1;
+    margin-right: 20px;
+    min-width: 12.5%;
+}

@@ -22,7 +22,6 @@ class Layout extends Component {
     handleAddClicked() {
         this.setState({
             showModal: true
-            //forecasts: ['Lalala', 'Loolooloo', 'Oh wow this is a much longer string', 'and check this one out, it\'s sooooooooooooo long!']
         });
     }
 

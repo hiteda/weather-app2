@@ -1,0 +1,5 @@
+.App-row {
+    overflow-y: hidden;
+    overflow-x: auto;
+    display: flex;
+}
