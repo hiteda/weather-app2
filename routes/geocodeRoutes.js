@@ -10,8 +10,7 @@ module.exports = app => {
             return;
         }
 
-        const geocodeUrl = //'https://cors-anywhere.herokuapp.com/'
-                            'https://api.opencagedata.com/geocode/v1/json?q='
+        const geocodeUrl = 'https://api.opencagedata.com/geocode/v1/json?q='
                             + query.city
                             + '%2C%20'
                             + query.state

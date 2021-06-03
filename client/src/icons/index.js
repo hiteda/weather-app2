@@ -13,7 +13,7 @@ import thunder from './Thunder.png';
 import tornado from './Tornado.png';
 import unknown from './Unknown.png';
 
-export default {
+const icons = {
     hazy,
     sunny,
     lightRain,
@@ -29,3 +29,5 @@ export default {
     tornado,
     unknown
 };
+
+export default icons;

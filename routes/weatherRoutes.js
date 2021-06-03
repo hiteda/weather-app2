@@ -10,8 +10,7 @@ module.exports = app => {
             return;
         }
 
-        const weatherApiUrl = //'https://cors-anywhere.herokuapp.com/'
-                                'https://api.openweathermap.org/data/2.5/onecall?'
+        const weatherApiUrl = 'https://api.openweathermap.org/data/2.5/onecall?'
                                 + 'lat=' + query.lat
                                 + '&lon=' + query.lon
                                 + '&exclude=current,hourly,minutely&units=imperial'
