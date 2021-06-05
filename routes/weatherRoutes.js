@@ -25,6 +25,12 @@ module.exports = app => {
 
         if (!response.ok) {
             res.status(500);
+            if (response.status === 402) {
+                // Free subscription limited to 1M calls/month, 60 calls/minute.
+                // Lowest level subscription $40/month. https://openweathermap.org/price#weather
+                res.send('OpenWeatherMap API subscription exceeded');
+                return;
+            }
             res.send('Server request failed');
             return;
         }

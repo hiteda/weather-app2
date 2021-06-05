@@ -1,6 +1,10 @@
 import axios from 'axios';
 
 const getCity = async (cityState) => {
+    if (!cityState) {
+        return null;
+    }
+
     const parsed = cityState.split(',');
     if (parsed.length !== 2) {
         return null;

@@ -26,6 +26,12 @@ module.exports = app => {
 
         if (!response.ok) {
             res.status(500);
+            if (response.status === 402) {
+                // Free trial limit is 2,500 requests/day. https://opencagedata.com/pricing
+                // Lowest level paid subscription is $50 for 10,000 requests/day.
+                res.send('OpenCage API subscription has exceeded its quota.');
+                return;
+            }
             res.send('Server request failed');
             return;
         }
